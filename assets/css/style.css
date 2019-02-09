@@ -1,0 +1,18 @@
+body {
+    background-color: black;
+    padding: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    margin: 15px;
+    line-height: 50px;
+}
+.container { 
+    text-align: center;
+    border:  2px  solid white;
+}
+
+.guesses {
+    border:  2px  solid white;
+    text-align: center;
+    margin-top: 15px;
+}
