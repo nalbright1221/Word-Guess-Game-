@@ -1,69 +1,52 @@
-// var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
-// 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
-// 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+//wins and losses
+var wins = 0;
+var losses = 0;
+
+// Create variables that hold references to the places in the HTML where we want to display things.
+
+var underScore = document.getElementById("underscores");
+var rightGuess = document.getElementById("right-guess");
+var gamesWon = document.getElementById("games-won");
+
+var gamesLost = document.getElementById("games-lost");
+
+//guesses left 
+  var guessesLeft = document.getElementById("guesses-left");
+  var guesses = 10;
+  guessesLeft.textContent = guesses;
 
 // create an array of words 
-var drinkChoice = [
-    'old fashion',
-    'moscole mule',
-    'daiquiri',
-    'manhattan',
-    'martini',
-    'margarita',
-    'mojito',
-    'bloody mary',
-    'gimlet',
-    'comsopolitan',
-    'long island',
-    'mimosa',
-    'bellini',
-];
+  var drinkChoice = ['daiquiri', 'manhattan', 'martini', 'margarita', 'mojito', 'mimosa'];
 
-//Counting Variable  
+// Randomly chooses a choice from the options array. This is the Computer's guess.
+  var computerGuessDrink = drinkChoice[Math.floor(Math.random() * drinkChoice.length)];
+  
+  // black arrays for letters that have been  guessed 
+  var guessedLetters = [];
+  var blankLetters = [];
 
-var wins = 0;
-var losses =  0;
-var  guessesLeft= 9;
-var rightLetters =  0;
-var wrongLetters = 0;
-
-// computer chooses a random drink choice
-var randomDrink = Math.floor(Math.random() * drinkChoice.length);
-var chosenDrink = drinkChoice[randomDrink];
-console.log(chosenDrink);
-
-// create underscores based on the length of the drink choice
-var  underScore = [];
-var generateUnderscore = () =>  {
-    for(var i = 0; i < chosenDrink.length; i++){
-underScore.push('_');
-    }
-    return underScore;
-}
-
-console.log(generateUnderscore());
-
-// //get user guesses 
-document.addEventListener("keydown", function(event) {
-    var keycode = event.keyCode;
-    var keyWord = String.fromCharCode(keycode);
-    console.log(keyWord);
+// computer loops through array to choose random word
+  for (var i = 0; i < drinkChoice.length; i++) {
+    var drinkChoiceText = document.getElementById("underscores");
+    blankLetters.push("_");
+    drinkChoiceText.textContent = blankLetters.join(" ");
+    guessedLetters.push(computerGuessDrink.charAt(i));
   }
-);
 
-// if the user guesses right 
+  //determine the users guess and puts in  the correct html space
+var userGuessText = document.getElementById("user-guess");
+userGuessText.textContent = ", ";
 
-// add to right array 
+document.onkeyup = function (event) {
 
-// if the user guesses wrong 
-
-// add to wrong array 
-
-
-
-// // changes in html 
-// document.getElementsByClassName("guessesLeft").innerHTML=
-// document.getElementsByClassName("rightGuess").innerHTML=
-// document.getElementsByClassName("wrongGuess").innerHTML=
-// document.getElementsByClassName("wins").innerHTML=
-// document.getElementsByClassName("losses").innerHTML=
+  // add letters to viewport
+    var userGuess = event.key;
+  for (var i = 0; i < guessedLetters.length; i++) {
+    if (userGuess == guessedLetters[i]){
+      blankLetters[i] = userGuess;
+      computerGuessDrink.textContent  = blankLetters.join(" ");
+    console.log(blankLetters + "blank");
+    console.log(guessedLetters + "word");
+  }
+}
+}

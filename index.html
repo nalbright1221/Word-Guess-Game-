@@ -7,7 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Hangover Man</title>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <script src="assets/javascript/newgame.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -19,29 +18,36 @@
         </header>
     </div>
         
+
+
+   
+   
+<!--- guesses let -->
+        <h3>You've guessed </h3>
+        <p id="user-guess"></p>
+
+<!--- displays underscores depending on word length -->
+        <h3>Word to Guess:</h3>
+        <p id="underscores"> </p>
+
+        <h3> Guesses Left </h3>
+        <p id="guesses-left"></p>
+
+
+        <!--- displaysright guesses  -->
+        <h3>Right Guesses: </h3>
+        <p id="right-guess"></p>
+
+        <!--- displays wins/losses -->
+        <h3> Wins:</h3>
+        <p class="games-won"></p>
         
-<div class="guesses">
-        <div>GUESSES LEFT:</div>
-        <div class="guessesLeft"></div>
+        <h3>Losses:</h3>
+        <p class="game-lost"></p>
+   
 
-        <div class="underscores">_ _ _ _ _ _ </div>
-
-        <div>RIGHT GUESSES:</div>
-        <div class="rightGuess"></div>
-
-        <div>WRONG GUESSES:</div>
-        <div class="wrongGuess"></div>
-
-        <div> WINS:</div>
-        <div class="wins">0</div>
-        
-        <div>LOSSES:</div>
-        <div class="losses">0</div>
-    </div>
-
- 
-
-
+    <!---Link to  javascript -->
+    <script src="./assets/javascript/newgame.js"></script> 
 </body>
 
 </html>
